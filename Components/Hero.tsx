@@ -1,6 +1,9 @@
 import React from "react";
 import { Spotlight } from "./ui/spotlight";
+import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import clsx from "clsx";
+import MagicButton from "./ui/MagicButton";
+import { FaLocationArrow } from "react-icons/fa";
 
 function Hero() {
     return (
@@ -31,11 +34,22 @@ function Hero() {
                 />
             </div>
 
-
-
             <div className="flex justify-center relative my-20 z-10">
                 <div className="max-w-[80vw] md:max-2xl lg:max-w-60vw flex flex-col items-center justify-center">
-                    <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">Dynamic Web Magic with Next.js</h2>
+                    <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 opacity-30 max-w-80">built with Next.js</h2>
+                    <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg:text-6xl"
+                        words="Transforming Concepts Into Seamless Experiences" />
+
+                    <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+                        Hi I&apos;m Pritesh a Web Developer from the UK
+                    </p>
+
+                    <a href="#about">
+                        <MagicButton 
+                            title="Go To My Work"
+                            icon={<FaLocationArrow/>}
+                            position="right"/>
+                    </a>
                 </div>
             </div>
         </div>
