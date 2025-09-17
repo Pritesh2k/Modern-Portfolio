@@ -22,7 +22,7 @@ export const BentoGrid = ({
       <div
         className={cn(
           // Removed max-w-7xl so it can expand fully if needed
-          "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+          "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-2 lg:gap-3 mx-auto",
           className
         )}
       >
@@ -112,27 +112,34 @@ export const BentoGridItem = ({
           </div>
 
           {id == 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              <div className="flex flex-col gap-3 lg:gap-8">
+            <div className="absolute top-1/2 -translate-y-1/2 right-0 flex gap-2 lg:gap-5 w-fit">
+              <div className="mt-3 flex flex-col gap-3 lg:gap-8">
                 {['React.js', 'Next.js', 'Typescript'].map((item) => (
-                  <span key={item} className="py-2 lg:py-4 lg:px-3 px-1 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-1 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
                     {item}
                   </span>
                 ))}
 
-                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+                <span className="py-2 px-3 rounded-lg text-center bg-[#10132e]" />
               </div>
 
-              <div className="flex flex-col gap-3 lg:gap-8">
-                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+              <div className="mt-3 flex flex-col gap-3 lg:gap-8">
+                <span className="mt-1 py-2 px-3 rounded-lg text-center bg-[#10132e]" />
                 {['JavaScript', 'Python', 'Java'].map((item) => (
-                  <span key={item} className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
+                  <span
+                    key={item}
+                    className="py-4 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
                     {item}
                   </span>
                 ))}
               </div>
             </div>
           )}
+
 
           {id == 6 && (
             <div className="mt-5 relative">
