@@ -100,6 +100,14 @@ const config = {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
         shimmer: {
           from: {
             backgroundPosition: "0 0",
@@ -153,6 +161,7 @@ const config = {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shimmer: "shimmer 2s linear infinite",
         first: "moveVertical 30s ease infinite",
+        aurora: "aurora 60s linear infinite",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",

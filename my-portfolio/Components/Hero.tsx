@@ -15,10 +15,13 @@ function Hero() {
                     fill="white"
                 />
                 <Spotlight
-                    className="h-[80vh] w-[50vw] top-10 left-full"
+                    className="h-[80vh] w-[50vw] top-25 left-full"
                     fill="purple"
                 />
-                <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
+                <Spotlight 
+                    className="left-80 top-28 h-[80vh] w-[50vw]" 
+                    fill="blue"
+                 />
             </div>
 
             {/* Main Section */}
@@ -45,10 +48,10 @@ function Hero() {
                     </p>
 
                     <a href="#about">
-                        <MagicButton 
+                        <MagicButton
                             title="Go To My Work"
-                            icon={<FaLocationArrow/>}
-                            position="right"/>
+                            icon={<FaLocationArrow />}
+                            position="right" />
                     </a>
                 </div>
             </div>

@@ -28,9 +28,9 @@ export const gridItems = [
   },
   {
     id: 3,
-    title: "My tech stack",
-    description: "I constantly try to improve",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2 sm:min-h-[2=10vh] md:min-h-[2=15vh] lg:min-h-[2=20vh]",
+    title: "Languages",
+    description: "Some,",
+    className: "lg:col-span-2 md:col-span-2 md:row-span-2 sm:min-h-[2=10vh] md:min-h-[2=15vh] lg:min-h-[2=20vh]",
     imgClassName: "",
     titleClassName: "justify-center",
     img: "",
