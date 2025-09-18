@@ -52,8 +52,8 @@ export const RecentProjects = () => {
                                 </div>
 
                                 <div className='flex justify-center items-center'>
-                                    <p className='flex lg:text-xl md:text-xs text-sm text-purple'>Check Live Site</p>
-                                    <FaLocationArrow className='ms-3' color='#CBACF9' />
+                                    <p className='flex lg:text-xl md:text-xs text-sm text-slate-100'>Check Live Site</p>
+                                    <FaLocationArrow className='ms-3' color='#f1f5f9' />
                                 </div>
                             </div>
                         </PinContainer>

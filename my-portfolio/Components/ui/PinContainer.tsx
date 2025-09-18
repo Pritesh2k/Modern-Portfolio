@@ -47,7 +47,7 @@ export const PinContainer = ({
         <div
           style={{
             transform: transform,
-            background: 'linear-gradient(45deg,rgba(141, 104, 173, 1) 23%, rgba(107, 137, 219, 1) 99%)',
+            background: 'linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)',
           }}
           // remove  bg-black
           className="absolute left-1/2 p-4 top-1/2  flex justify-start items-start  rounded-2xl  shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"

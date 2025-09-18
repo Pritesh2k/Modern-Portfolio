@@ -6,7 +6,7 @@ import GridGlobe from "./GridGlobe";
 import { useState } from "react";
 import animationData from '@/data/confetti.json'
 import Lottie from "react-lottie";
-import { IoCopy, IoCopyOutline } from "react-icons/io5";
+import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
 
 export const BentoGrid = ({
@@ -17,12 +17,10 @@ export const BentoGrid = ({
   children?: React.ReactNode;
 }) => {
   return (
-    // Outer container centers the grid horizontally
-    <div className="flex justify-center">
+    <div className="flex justify-center px-2 md:px-4 lg:px-0">
       <div
         className={cn(
-          // Removed max-w-7xl so it can expand fully if needed
-          "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-2 lg:gap-3 mx-auto",
+          "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 gap-2 md:gap-3 lg:gap-4 mx-auto",
           className
         )}
       >
@@ -53,115 +51,148 @@ export const BentoGridItem = ({
   titleClassName?: string,
   spareImg?: string,
 }) => {
-
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('priteshparekh237@gmail.com');
     setCopied(true);
-  }
+  };
+
+  // Hover classes
+  const titleHoverClass = (id === 1 || id === 2 || id === 6)
+    ? "group-hover:scale-105 transition-transform duration-200"
+    : "";
+
+  const itemHoverClass = (id === 3 || id === 4)
+    ? "group-hover:-translate-y-2 md:group-hover:-translate-y-3 transition-transform duration-200"
+    : id === 5
+      ? "group-hover:translate-x-2 md:group-hover:translate-x-5 transition-transform duration-200"
+      : "";
+
+  // ID-specific flex alignment
+  const contentFlexClass = (id === 6 || id === 4)
+    ? "flex flex-col items-center justify-center text-center"
+    : id === 2
+      ? "flex flex-col justify-start" // push text upwards
+      : "flex flex-col";
 
   return (
     <div
       className={cn(
-        "row-span-1 relative overflow-hidden rounded-3xl group/bento hover:shadow-xl transition duration-100 shadow-input dark:shadow-none justify-between flex flex-col space-y-4 border border-white/[0.1]",
-        className
+        "row-span-1 relative overflow-hidden rounded-3xl group shadow-input dark:shadow-none border border-white/[0.1]",
+        className,
+        itemHoverClass
       )}
       style={{
-        background: 'linear-gradient(45deg,rgba(141, 104, 173, 1) 23%, rgba(107, 137, 219, 1) 99%)',
+        background: 'linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)',
       }}
     >
-      <div className={`${id == 6 && 'flex justify-center'} 'h-full`}>
-        <div className="w-full h-full absolute">
-          {img && (
-            <img
-              src={img}
-              alt={img}
-              className={cn(imgClassName, 'object-cover', 'object-center')}
-            />
-          )}
-        </div>
-        <div className={`absolute right-0 -bottom-5 ${id === 5 && 'w-full'}`}>
-          {spareImg && (
-            <img
-              src={spareImg}
-              alt={spareImg}
-              className={cn('object-cover', 'object-center w-full h-full')}
-            />
-          )}
-        </div>
-        {id === 6 && (
-          <BackgroundGradientAnimation>
-            <div className="absolute z-50 flex items-center justify-center text-white font-bold">
-            </div>
-          </BackgroundGradientAnimation>
+      {/* Image Background */}
+      <div className="w-full h-full absolute">
+        {img && (
+          <img
+            src={img}
+            alt={img}
+            className={cn(imgClassName, 'object-cover object-center w-full h-full')}
+          />
         )}
+      </div>
+
+      {spareImg && (
+        <div className={`absolute right-0 bottom-0 w-full`}>
+          <img
+            src={spareImg}
+            alt={spareImg}
+            className="object-cover object-center w-full h-full"
+          />
+        </div>
+      )}
+
+      {id === 6 && (
+        <BackgroundGradientAnimation>
+          <div className="absolute z-50 flex items-center justify-center text-white font-bold" />
+        </BackgroundGradientAnimation>
+      )}
+
+      {/* Content */}
+      <div className={cn(
+        titleClassName,
+        `${contentFlexClass} px-4 md:px-5 lg:px-8 py-4 md:py-6 lg:py-8 min-h-[200px] md:min-h-[220px] lg:min-h-[260px] transition-transform duration-200`,
+        itemHoverClass
+      )}>
+        <div className="font-sans font-extralight text-[#c1c2d3] text-xs sm:text-sm md:text-base lg:text-lg z-10">
+          {description}
+        </div>
 
         <div className={cn(
-          titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10'
+          "font-sans font-bold text-sm sm:text-lg md:text-2xl lg:text-3xl max-w-full z-10 mt-2",
+          titleHoverClass
         )}>
-          <div className="font-sans font-extralight text-[#c1c2d3] text-xs md:text-sm lg:text-base z-10">
-            {description}
-          </div>
-          <div className="font-sans font-bold text-sm md:text-lg lg:text-3xl max-w-96 z-10">
-            {title}
-          </div>
+          {title}
+        </div>
 
-          <div className="mt-14">
-            {id == 2 && <GridGlobe />}
-          </div>
+        {/* ID 2 GridGlobe */}
+        {id === 2 && <div className="mt-2 md:mt-4"><GridGlobe /></div>}
 
-          {id == 3 && (
-            <div className="absolute top-1/2 -translate-y-1/2 right-0 flex gap-2 lg:gap-5 w-fit">
-              <div className="mt-3 flex flex-col gap-3 lg:gap-8">
-                {['React.js', 'Next.js', 'Typescript'].map((item) => (
-                  <span
-                    key={item}
-                    className="py-2 lg:py-4 lg:px-3 px-1 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                  >
-                    {item}
-                  </span>
-                ))}
-
-                <span className="py-2 px-3 rounded-lg text-center bg-[#10132e]" />
-              </div>
-
-              <div className="mt-3 flex flex-col gap-3 lg:gap-8">
-                <span className="mt-1 py-2 px-3 rounded-lg text-center bg-[#10132e]" />
-                {['JavaScript', 'Python', 'Java'].map((item) => (
-                  <span
-                    key={item}
-                    className="py-4 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+        {/* ID 3 Lists */}
+        {id === 3 && (
+          <div className="mt-4 flex flex-col lg:flex-row gap-3 lg:gap-6 z-10">
+            <div className="flex flex-col gap-2 md:gap-3">
+              <span className="py-1 px-3 rounded-lg text-center bg-[#10132e]" />
+              {['React.js', 'Next.js', 'Typescript'].map(item => (
+                <span
+                  key={item}
+                  className="py-1 md:py-2 lg:py-3 px-2 md:px-3 lg:px-4 text-xs md:text-sm lg:text-base opacity-60 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
-          )}
 
+            <div className="flex flex-col gap-2 md:gap-3">
+              {['JavaScript', 'Python', 'Java'].map(item => (
+                <span
+                  key={item}
+                  className="py-1 md:py-2 lg:py-3 px-2 md:px-3 lg:px-4 text-xs md:text-sm lg:text-base opacity-60 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                >
+                  {item}
+                </span>
+              ))}
+              <span className="py-1 px-3 rounded-lg text-center bg-[#10132e]" />
+            </div>
+          </div>
+        )}
 
-          {id == 6 && (
-            <div className="mt-5 relative">
-              <div className="absolute -bottom-5 right-0">
-                <Lottie options={{
+        {/* ID 6 Button & Lottie */}
+        {id === 6 && (
+          <div className="mt-3 md:mt-4 relative w-full flex flex-col items-center justify-center gap-3">
+            {/* Lottie animation positioned absolutely and centered */}
+            <div className="absolute -bottom-8 md:-bottom-10 left-1/2 transform -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 pointer-events-none flex justify-center items-center">
+              <Lottie
+                options={{
                   loop: copied,
                   autoplay: copied,
                   animationData: animationData,
                   rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
-                }} />
-              </div>
-
-                <MagicButton
-                  title={copied ? 'Email Copied!' : 'Copy My Email'}
-                  icon={<IoCopyOutline />}
-                  position="left"
-                  otherClasses="!bg-[#161a31]"
-                  handleClick={handleCopy}
-                />
+                }}
+              />
             </div>
-          )}
-        </div>
+
+            {/* MagicButton only */}
+            <div className="w-full flex justify-center">
+              <MagicButton
+                title={copied ? 'Email Copied!' : 'Copy My Email'}
+                icon={<IoCopyOutline />}
+                position="left"
+                otherClasses="!bg-[#161a31]"
+                handleClick={handleCopy}
+              />
+            </div>
+          </div>
+        )}
+
+
+
       </div>
     </div>
   );
