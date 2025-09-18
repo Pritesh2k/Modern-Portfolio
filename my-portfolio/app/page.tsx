@@ -2,7 +2,7 @@ import Hero from "@/Components/Hero";
 import Grid from "@/Components/Grid";
 import { FloatingNav } from "@/Components/ui/FloatingNav";
 import { FaHome, FaPen, FaUser } from "react-icons/fa";
-import { RecentProjects } from "@/Components/RecentProjects";
+import {RecentProjects} from "@/Components/RecentProjects";
 
 export default function Home() {
   return (
