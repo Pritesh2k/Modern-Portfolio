@@ -68,7 +68,7 @@ export const BentoGridItem = ({
         className
       )}
       style={{
-        background: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 50%, rgba(20,25,50,1) 100%)",
+        background: 'linear-gradient(45deg,rgba(141, 104, 173, 1) 23%, rgba(107, 137, 219, 1) 99%)',
       }}
     >
       <div className={`${id == 6 && 'flex justify-center'} 'h-full`}>
@@ -81,7 +81,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        <div className={`absolute right-0 -bottom-5 ${id === 5 && 'w-full opacity-80'}`}>
+        <div className={`absolute right-0 -bottom-5 ${id === 5 && 'w-full'}`}>
           {spareImg && (
             <img
               src={spareImg}
@@ -152,13 +152,13 @@ export const BentoGridItem = ({
                 }} />
               </div>
 
-              <MagicButton
-                title={copied ? 'Email Copied!' : 'Copy My Email'}
-                icon={<IoCopyOutline />}
-                position="left"
-                otherClasses="!bg-[#161a31]"
-                handleClick={handleCopy}
-              />
+                <MagicButton
+                  title={copied ? 'Email Copied!' : 'Copy My Email'}
+                  icon={<IoCopyOutline />}
+                  position="left"
+                  otherClasses="!bg-[#161a31]"
+                  handleClick={handleCopy}
+                />
             </div>
           )}
         </div>
