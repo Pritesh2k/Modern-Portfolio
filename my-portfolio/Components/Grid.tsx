@@ -3,34 +3,38 @@ import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 
 const Grid = () => {
   return (
-    <section id="about" className="relative w-screen rounded-tl-[50px] rounded-tr-[50px] p-[1px] overflow-hidden">
-      {/* Spinning gradient border */}
-      <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+    <section
+      id="about"
+      className="relative w-screen overflow-hidden min-h-screen bg-white/[0.1] rounded-tl-[50px] rounded-tr-[50px] flex flex-col items-center"
+      style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
+    >
+      {/* Title Section */}
+      <h1 className="flex justify-center items-center text-center 
+        text-[32px] sm:text-[36px] md:text-5xl lg:text-6xl 
+        text-slate-100 font-bold drop-shadow-lg 
+        pt-12 sm:pt-14 md:pt-16 lg:pt-20">
+        Personal
+        <span className="text-red-500 font-bold ml-3">Traits</span>
+      </h1>
 
-      {/* Inner content with solid background */}
-      <div className="relative z-10 -translate-y-20 mt-5 rounded-tl-[50px] rounded-tr-[50px] bg-white backdrop-blur-3xl">
-        <h1 className="flex justify-center items-center text-center text-[40px] md:text-5xl lg:text-6xl mt-20 h-40 text-slate-900">
-          Personal
-          <span className="text-red-500 font-bold ml-3">Traits</span>
-        </h1>
-
-
-        <BentoGrid className="h-screen w-80% py-5">
-          {gridItems.map(({ id, title, description, className, img, imgClassName, titleClassName, spareImg }) => (
-            <BentoGridItem
-              key={id}
-              id={id}
-              title={title}
-              description={description}
-              className={className}
-              img={img}
-              imgClassName={imgClassName}
-              titleClassName={titleClassName}
-              spareImg={spareImg}
-            />
-          ))}
-        </BentoGrid>
-      </div>
+      {/* Grid Section */}
+      <BentoGrid
+        className="h-full w-11/12 sm:w-4/5 pt-10 sm:pt-12 md:pt-14 lg:pt-16 pb-10 sm:pb-12 md:pb-14 lg:pb-16"
+      >
+        {gridItems.map(({ id, title, description, className, img, imgClassName, titleClassName, spareImg }) => (
+          <BentoGridItem
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            className={className}
+            img={img}
+            imgClassName={imgClassName}
+            titleClassName={titleClassName}
+            spareImg={spareImg}
+          />
+        ))}
+      </BentoGrid>
     </section>
   );
 };
