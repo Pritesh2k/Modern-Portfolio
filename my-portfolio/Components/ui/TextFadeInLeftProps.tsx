@@ -20,24 +20,36 @@ export const TextFadeInLeft: React.FC<TextFadeInLeftProps> = ({
 }) => {
   const wordsArray = words.split(" ");
 
+  // Container variant for staggered children
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: delayPerWord } },
+  };
+
+  // Each word slides in from left and fades
+  const child = {
+    hidden: { opacity: 0, x: -30, willChange: "opacity, transform" },
+    visible: { opacity: 1, x: 0, transition: { duration, ease: "easeOut" } },
+  };
+
   return (
-    <div className={className}>
+    <motion.div
+      className={className}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      style={{ display: "inline-block" }}
+    >
       {wordsArray.map((word, idx) => (
         <motion.span
           key={word + idx}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration,
-            delay: idx * delayPerWord,
-            ease: "easeOut",
-          }}
+          variants={child}
           className={wordClassNames[idx] || ""}
           style={{ display: "inline-block", marginRight: "0.25em" }}
         >
           {word}
         </motion.span>
       ))}
-    </div>
+    </motion.div>
   );
 };
