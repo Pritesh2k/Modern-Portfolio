@@ -5,7 +5,15 @@ const Grid = () => {
   return (
     <section
       id="about"
-      className="relative w-screen overflow-hidden min-h-screen bg-white/[0.1] rounded-tl-[50px] rounded-tr-[50px] flex flex-col items-center"
+className="relative w-screen overflow-hidden min-h-screen 
+  bg-gradient-to-br from-white/10 via-white/5 to-transparent
+  backdrop-blur-xl 
+  border border-white/20 
+  shadow-lg 
+  rounded-tl-[50px] rounded-tr-[50px] 
+  flex flex-col items-center"
+
+
       style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
     >
       {/* Title Section */}
@@ -14,7 +22,7 @@ const Grid = () => {
         text-slate-100 font-bold drop-shadow-lg 
         pt-12 sm:pt-14 md:pt-16 lg:pt-20">
         Personal
-        <span className="text-red-500 font-bold ml-3">Traits</span>
+        <span className="text-blue-800 font-bold ml-3">Traits</span>
       </h1>
 
       {/* Grid Section */}

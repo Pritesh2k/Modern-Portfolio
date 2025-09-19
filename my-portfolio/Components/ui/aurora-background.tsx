@@ -12,7 +12,7 @@ export const AuroraBackground = ({
   className,
   children,
   showRadialGradient = true,
-  delay = 1500,
+  delay = 0,
   ...props
 }: AuroraBackgroundProps) => {
   const [effectVisible, setEffectVisible] = useState(false);

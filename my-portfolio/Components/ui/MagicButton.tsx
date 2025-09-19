@@ -25,9 +25,9 @@ function MagicButton({
             <span
                 className={`
                     inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg
-                    opacity-99 bg-white-200 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-3
+                    bg-white-200 px-7 text-sm backdrop-blur-3xl gap-3
                     ${otherClasses}
-                    [text-shadow:2px_2px_6px_rgba(0,0,0,0.35)]
+                    [text-shadow:2px_2px_6px_rgba(0,0,0,0.5)]
                 `}
             >
                 {position === 'left' && icon}

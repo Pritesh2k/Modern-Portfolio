@@ -56,21 +56,22 @@ function Hero() {
             wordClassNames={[
               "beau-rivage-regular text-3xl text-slate-100", // Pritesh
               "beau-rivage-regular text-3xl text-slate-100", // Parekh
-              "text-red-500 font-bold relative z-10 [text-shadow:7px_0_15px_rgba(239,68,68,1)]", // | pipe with glow
-              "text-red-600 font-bold [text-shadow:2px_0_10px_rgba(239,68,68,0.3)]",                          // DEV
+              "text-blue-800 font-bold relative z-10 [text-shadow:7px_0_15px_rgba(30 64 175,0.3)]", // | pipe with glow
+              "text-blue-800 font-bold [text-shadow:2px_0_10px_rgba(30 64 175,0.3)]",                          // DEV
             ]}
           />
 
-          <a href="#about">
+          <a href="#projects">
             <motion.div
               initial={{ opacity: 0, y: 20 }}      // start slightly below
               animate={{ opacity: 1, y: 0 }}      // fade in and move to final position
               transition={{ duration: 0.8, delay: 1, ease: "easeOut" }} // delay before appearing
             >
               <MagicButton
-                title="Go To My Work"
+                title="My Work"
                 icon={<FaLocationArrow color="rgb(239 68 68)" />}
                 position="right"
+                otherClasses="text-white"
               />
             </motion.div>
           </a>

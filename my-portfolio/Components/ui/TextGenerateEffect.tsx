@@ -13,13 +13,11 @@ export const TextGenerateEffect = ({
 }) => {
   const wordsArray = words.split(" ");
 
-  // container variant for stagger
   const container = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.2 } },
   };
 
-  // child variant: opacity + slight upward motion
   const child = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration } },
@@ -27,17 +25,22 @@ export const TextGenerateEffect = ({
 
   return (
     <motion.div
-      className={cn("font-bold", className)}
+      className={cn("font-bold w-full text-center", className)}
       variants={container}
       initial="hidden"
       animate="visible"
     >
       <div className="my-4">
-        <div className="dark:text-white text-black leading-snug tracking-wide">
+        <div
+          className="dark:text-white text-black leading-snug tracking-wide truncate"
+          style={{
+            fontSize: "clamp(1.5rem, 5vw, 3rem)", // scales dynamically to fit
+          }}
+        >
           {wordsArray.map((word, idx) => (
             <motion.span
               key={word + idx}
-              className={`${idx > 2 ? "text-red-500" : "dark:text-white text-black"} mr-1`}
+              className={`${idx > 2 ? "text-blue-800" : "dark:text-white text-black"} mr-1`}
               variants={child}
             >
               {word}

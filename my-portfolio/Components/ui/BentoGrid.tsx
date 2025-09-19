@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import { useState } from "react";
-import animationData from '@/data/confetti.json'
+import animationData from '@/data/confetti.json';
 import Lottie from "react-lottie";
-import { IoCopyOutline } from "react-icons/io5";
 import MagicButton from "./MagicButton";
+import { FaAws, FaCode, FaCodeBranch, FaCopy, FaInfinity, FaJava, FaPython, FaReact } from "react-icons/fa";
 
 export const BentoGrid = ({
   className,
@@ -43,13 +43,11 @@ export const BentoGridItem = ({
   className?: string;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
   id: number;
-  img?: string,
-  imgClassName?: string,
-  titleClassName?: string,
-  spareImg?: string,
+  img?: string;
+  imgClassName?: string;
+  titleClassName?: string;
+  spareImg?: string;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -58,7 +56,6 @@ export const BentoGridItem = ({
     setCopied(true);
   };
 
-  // Hover classes
   const titleHoverClass = (id === 1 || id === 2 || id === 6)
     ? "group-hover:scale-105 transition-transform duration-200"
     : "";
@@ -69,12 +66,15 @@ export const BentoGridItem = ({
       ? "group-hover:translate-x-2 md:group-hover:translate-x-5 transition-transform duration-200"
       : "";
 
-  // ID-specific flex alignment
-  const contentFlexClass = (id === 6 || id === 4)
+  const contentFlexClass = id === 1
     ? "flex flex-col items-center justify-center text-center"
     : id === 2
-      ? "flex flex-col justify-start" // push text upwards
-      : "flex flex-col";
+      ? "flex flex-col items-center justify-start text-center"
+      : id === 3
+        ? "flex flex-col items-start justify-center text-left"
+        : id === 6 || id === 4
+          ? "flex flex-col items-center justify-center text-center"
+          : "flex flex-col";
 
   return (
     <div
@@ -99,7 +99,7 @@ export const BentoGridItem = ({
       </div>
 
       {spareImg && (
-        <div className={`absolute right-0 bottom-0 w-full`}>
+        <div className="absolute right-0 bottom-0 w-full">
           <img
             src={spareImg}
             alt={spareImg}
@@ -120,54 +120,58 @@ export const BentoGridItem = ({
         `${contentFlexClass} px-4 md:px-5 lg:px-8 py-4 md:py-6 lg:py-8 min-h-[200px] md:min-h-[220px] lg:min-h-[260px] transition-transform duration-200`,
         itemHoverClass
       )}>
-        <div className="font-sans font-extralight text-[#c1c2d3] text-xs sm:text-sm md:text-base lg:text-lg z-10">
-          {description}
-        </div>
-
-        <div className={cn(
-          "font-sans font-bold text-sm sm:text-lg md:text-2xl lg:text-3xl max-w-full z-10 mt-2",
-          titleHoverClass
-        )}>
-          {title}
-        </div>
+        {/* ID 3: description + title together */}
+        {id === 3 ? (
+          <div className="flex flex-col gap-2 z-10">
+            <div className="font-sans font-extralight text-[#c1c2d3] text-xs sm:text-sm md:text-base lg:text-lg">
+              {description}
+            </div>
+            <div className={cn(
+              "font-sans font-bold text-sm sm:text-lg md:text-2xl lg:text-3xl max-w-full",
+              titleHoverClass
+            )}>
+              {title}
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="font-sans font-extralight text-[#c1c2d3] text-xs sm:text-sm md:text-base lg:text-lg z-10">
+              {description}
+            </div>
+            <div className={cn(
+              "font-sans font-bold text-sm sm:text-lg md:text-2xl lg:text-3xl max-w-full z-10 mt-2",
+              titleHoverClass
+            )}>
+              {title}
+            </div>
+          </>
+        )}
 
         {/* ID 2 GridGlobe */}
         {id === 2 && <div className="mt-2 md:mt-4"><GridGlobe /></div>}
 
         {/* ID 3 Lists */}
         {id === 3 && (
-          <div className="mt-4 flex flex-col lg:flex-row gap-3 lg:gap-6 z-10">
-            <div className="flex flex-col gap-2 md:gap-3">
-              <span className="py-1 px-3 rounded-lg text-center bg-[#10132e]" />
-              {['React.js', 'Next.js', 'Typescript'].map(item => (
-                <span
-                  key={item}
-                  className="py-1 md:py-2 lg:py-3 px-2 md:px-3 lg:px-4 text-xs md:text-sm lg:text-base opacity-60 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-2 md:gap-3">
-              {['JavaScript', 'Python', 'Java'].map(item => (
-                <span
-                  key={item}
-                  className="py-1 md:py-2 lg:py-3 px-2 md:px-3 lg:px-4 text-xs md:text-sm lg:text-base opacity-60 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                >
-                  {item}
-                </span>
-              ))}
-              <span className="py-1 px-3 rounded-lg text-center bg-[#10132e]" />
-            </div>
+          <div className="mt-4 flex flex-wrap gap-2 md:gap-3 z-10 w-full justify-start">
+            {[
+              <FaReact key="react" color="#00fff2" />, 'React.js', 'Next.js',
+              <FaJava key="java" color="#ff6800" />, 'Typescript', <FaPython key="python" color="#e7ff00" />,
+              'JavaScript', 'Python', <FaCodeBranch key="branch" color="#ffc5fe" />, 'Java', <FaCode key="code" />,
+            ].map((item, index) => (
+              <span
+                key={typeof item === 'string' ? item : `icon-${index}`}
+                className="py-1 md:py-2 lg:py-3 px-2 md:px-3 lg:px-4 text-xs md:text-sm lg:text-base opacity-60 lg:opacity-100 rounded-lg text-center bg-[#10132E] flex-none"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         )}
 
         {/* ID 6 Button & Lottie */}
         {id === 6 && (
-          <div className="mt-3 md:mt-4 relative w-full flex flex-col items-center justify-center gap-3">
-            {/* Lottie animation positioned absolutely and centered */}
-            <div className="absolute -bottom-8 md:-bottom-10 left-1/2 transform -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 pointer-events-none flex justify-center items-center">
+          <div className="mt-3 md:mt-4 relative w-full flex items-center justify-center gap-3">
+            <div className="absolute -bottom-8 md:-bottom-10 transform w-full h-24 md:w-28 md:h-28 pointer-events-none flex justify-center items-center">
               <Lottie
                 options={{
                   loop: copied,
@@ -178,21 +182,18 @@ export const BentoGridItem = ({
               />
             </div>
 
-            {/* MagicButton only */}
             <div className="w-full flex justify-center">
               <MagicButton
                 title={copied ? 'Email Copied!' : 'Copy My Email'}
-                icon={<IoCopyOutline />}
                 position="left"
-                otherClasses="!bg-[#161a31]"
+                otherClasses="opacity-99 bg-white-200 px-7 text-sm text-white font-bold backdrop-blur-3xl gap-3"
+                icon={<FaCopy color="red" />}
                 handleClick={handleCopy}
               />
             </div>
           </div>
+
         )}
-
-
-
       </div>
     </div>
   );
