@@ -6,7 +6,6 @@ import GridGlobe from "./GridGlobe";
 import { useState } from "react";
 import animationData from '@/data/confetti.json';
 import Lottie from "react-lottie";
-import MagicButton from "./MagicButton";
 import { FaAws, FaCode, FaCodeBranch, FaCopy, FaInfinity, FaJava, FaPython, FaReact } from "react-icons/fa";
 
 export const BentoGrid = ({
@@ -67,7 +66,7 @@ export const BentoGridItem = ({
       : "";
 
   const contentFlexClass = id === 1
-    ? "flex flex-col items-center justify-center text-center"
+    ? "flex flex-col items-start justify-start text-center"
     : id === 2
       ? "flex flex-col items-center justify-start text-center"
       : id === 3
@@ -169,31 +168,44 @@ export const BentoGridItem = ({
         )}
 
         {/* ID 6 Button & Lottie */}
+        {/* ID 6 Button & Lottie */}
         {id === 6 && (
-          <div className="mt-3 md:mt-4 relative w-full flex items-center justify-center gap-3">
-            <div className="absolute -bottom-8 md:-bottom-10 transform w-full h-24 md:w-28 md:h-28 pointer-events-none flex justify-center items-center">
-              <Lottie
-                options={{
-                  loop: copied,
-                  autoplay: copied,
-                  animationData: animationData,
-                  rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
-                }}
-              />
-            </div>
+          <div className="mt-3 md:mt-4 relative w-full flex flex-col items-center gap-3">
 
-            <div className="w-full flex justify-center">
-              <MagicButton
-                title={copied ? 'Email Copied!' : 'Copy My Email'}
-                position="left"
-                otherClasses="opacity-99 bg-white-200 px-7 text-sm text-white font-bold backdrop-blur-3xl gap-3"
-                icon={<FaCopy color="red" />}
-                handleClick={handleCopy}
-              />
-            </div>
+            {/* Lottie Confetti */}
+            {copied && (
+              <div className="absolute -bottom-16 md:-bottom-20 w-48 h-48 md:w-64 md:h-64 pointer-events-none flex justify-center items-center">
+                <Lottie
+                  options={{
+                    loop: false,
+                    autoplay: true,
+                    animationData: animationData,
+                    rendererSettings: { preserveAspectRatio: 'xMidYMid slice' },
+                  }}
+                  height={256}
+                  width={256}
+                />
+              </div>
+            )}
+
+            {/* Button */}
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText('priteshparekh237@gmail.com');
+                setCopied(true);
+
+                // Reset copied state and button text after 3 seconds
+                setTimeout(() => setCopied(false), 3000);
+              }}
+              className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white px-6 py-3 shadow-lg rounded-full hover:scale-105 transition-transform duration-300"
+            >
+              {copied ? 'Email Copied' : 'Contact Me'}
+            </button>
           </div>
-
         )}
+
+
+
       </div>
     </div>
   );

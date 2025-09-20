@@ -2,26 +2,40 @@ import React from 'react'
 import { projects } from '@/data';
 import { PinContainer } from './ui/PinContainer';
 import { FaLocationArrow } from 'react-icons/fa';
+import { TextHoverEffect } from "./ui/text-hover-effect";
 
 export const RecentProjects = () => {
     return (
-        <div
-            id='projects'
-            className='relative w-screen min-h-screen flex flex-col items-center bg-white/[0.1] overflow-hidden pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-12 sm:pb-14 md:pb-16 lg:pb-20'
+        <section
+            id="projects"
+            className="relative w-screen min-h-screen flex flex-col items-center
+                bg-gradient-to-br from-white/10 via-white/5 to-transparent
+                backdrop-blur-xl 
+                border border-white/20 
+                shadow-lg 
+                overflow-hidden pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-12 sm:pb-14 md:pb-16 lg:pb-20"
+            style={{ border: "1px solid rgba(255, 255, 255, 0.2)" }}
         >
+
             {/* Section Title */}
-            <h1 className="flex justify-center items-center text-center 
-                text-[32px] sm:text-[36px] md:text-5xl lg:text-6xl 
-                text-slate-100 font-bold drop-shadow-lg 
-                mb-8 sm:mb-10 md:mb-12 lg:mb-14">
-                Personal
-                <span className="text-blue-800 font-bold ml-3">Projects</span>
+            <h1 className="flex flex-wrap justify-center items-center text-center
+                text-[32px] sm:text-[36px] md:text-5xl lg:text-6xl xl:text-7xl
+                text-slate-100 font-bold drop-shadow-lg mb-8 sm:mb-10 md:mb-12 lg:mb-14 gap-1">
+
+                {/* TextHoverEffect inherits font size via parent */}
+                <TextHoverEffect text="My" />
+
+                {/* Span text slightly smaller for all screens */}
+                <span className="text-blue-800 font-bold
+                    text-[28px] sm:text-[32px] md:text-4xl lg:text-5xl xl:text-6xl -mt-5">
+                    Projects
+                </span>
             </h1>
 
             {/* Projects Grid */}
             <div className='flex flex-col items-center justify-center 
                 gap-x-10 sm:gap-x-14 md:gap-x-20 lg:gap-x-24 
-                gap-y-6 sm:gap-y-8 md:gap-y-10 lg:gap-y-12 
+                gap-y-6 sm:gap-y-8 md:gap-y-10 lg:gap-y-12 -mt-10 
                 w-full px-4 sm:px-6 md:px-8 lg:px-10'>
                 {projects.map(({ id, title, des, img, iconLists, link, year }) => (
                     <div
@@ -69,6 +83,6 @@ export const RecentProjects = () => {
                 ))}
             </div>
 
-        </div>
+        </section>
     )
 }

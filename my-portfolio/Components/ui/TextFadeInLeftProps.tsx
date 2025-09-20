@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import React from "react";
 
 interface TextFadeInLeftProps {
-  words: string;               // The text you want to animate
-  className?: string;          // Tailwind classes for styling
-  duration?: number;           // Animation duration per word
-  delayPerWord?: number;       // Stagger delay between words
-  wordClassNames?: string[];   // Optional: per-word classes
+  words: string;
+  className?: string;
+  duration?: number;
+  delayPerWord?: number;
+  wordClassNames?: string[];
 }
 
 export const TextFadeInLeft: React.FC<TextFadeInLeftProps> = ({
@@ -20,14 +20,13 @@ export const TextFadeInLeft: React.FC<TextFadeInLeftProps> = ({
 }) => {
   const wordsArray = words.split(" ");
 
-  // Container variant for staggered children
-  const container = {
+  // Explicitly type variants
+  const container: Variants = {
     hidden: {},
     visible: { transition: { staggerChildren: delayPerWord } },
   };
 
-  // Each word slides in from left and fades
-  const child = {
+  const child: Variants = {
     hidden: { opacity: 0, x: -30, willChange: "opacity, transform" },
     visible: { opacity: 1, x: 0, transition: { duration, ease: "easeOut" } },
   };

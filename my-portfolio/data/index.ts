@@ -2,14 +2,15 @@ export const navItems = [
   { name: "Home", link: "#" },
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
+  { name: "Quotes", link: "#quotes" },
   { name: "Contact", link: "#contact" },
 ];
 
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
-    description: "",
+    title: "Exploring Creativity Through Code",
+    description: "Thoughts → Fun Projects",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[20vh]",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
@@ -18,8 +19,8 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
-    description: "",
+    title: "Walks Of Life",
+    description: "Connect With Different People, Everywhere",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2 lg:min-h-[20vh]",
     imgClassName: "",
     titleClassName: "justify-center",
@@ -28,8 +29,8 @@ export const gridItems = [
   },
   {
     id: 3,
-    title: "Languages",
-    description: "Some,",
+    title: "Languages I've Worked With",
+    description: "No Description Needed...",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2 lg:min-h-[5vh]",
     imgClassName: "",
     titleClassName: "justify-center",
@@ -38,8 +39,8 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
-    description: "",
+    title: "Continuous Improvement / Continuous Development",
+    description: "CI/CD",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-start",
@@ -49,7 +50,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a JS Animation library",
+    title: "Upcoming: AI Automation",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -59,8 +60,8 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
-    description: "",
+    title: "In Working Together?",
+    description: "Interested,",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",
