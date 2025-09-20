@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     // Random hydration error fix:
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}> 
+      <body className={inter.className} suppressHydrationWarning> 
         <ThemeProvider
             attribute="class"
             defaultTheme="dark"
