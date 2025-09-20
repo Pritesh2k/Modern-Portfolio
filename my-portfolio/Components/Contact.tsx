@@ -23,12 +23,13 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative w-screen min-h-screen overflow-hidden
-        bg-gradient-to-br from-white/10 via-white/5 to-transparent
-        backdrop-blur-xl border border-white/20 shadow-lg
-        flex flex-row items-center justify-center"
+      className="relative w-screen min-h-[75vh] overflow-hidden
+      bg-gradient-to-br from-white/10 via-white/5 to-transparent
+      backdrop-blur-xl shadow-lg
+      flex flex-row items-center justify-center"
       style={{ border: "1px solid rgba(255, 255, 255, 0.2)" }}
     >
+
       {/* Left Section: Words + Button */}
       <div className="flex flex-col justify-center items-center w-[60vw] h-full p-4 gap-10 uppercase">
         <FlipWords
@@ -58,10 +59,10 @@ export const Contact = () => {
           {/* Lottie Confetti */}
           {playAnimation && (
             <div className="absolute -top-24 w-40 sm:w-48 md:w-64 h-40 sm:h-48 md:h-64 pointer-events-none flex justify-center items-center">
-              <Lottie 
-                animationData={animationData} 
-                loop={false} 
-                autoplay={true} 
+              <Lottie
+                animationData={animationData}
+                loop={false}
+                autoplay={true}
               />
             </div>
           )}

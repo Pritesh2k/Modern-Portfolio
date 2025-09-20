@@ -11,10 +11,8 @@ export const RecentProjects = () => {
             className="relative w-screen min-h-screen flex flex-col items-center
                 bg-gradient-to-br from-white/10 via-white/5 to-transparent
                 backdrop-blur-xl 
-                border border-white/20 
-                shadow-lg 
-                overflow-hidden pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-12 sm:pb-14 md:pb-16 lg:pb-20"
-            style={{ border: "1px solid rgba(255, 255, 255, 0.2)" }}
+                shadow-lg -mb-5
+                overflow-hidden pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-12 sm:pb-14 md:pb-16 lg:pb-20 -mt-1"
         >
 
             {/* Section Title */}

@@ -2,13 +2,12 @@ import Hero from "@/Components/Hero";
 import Grid from "@/Components/Grid";
 import { FloatingNav } from "@/Components/ui/FloatingNav";
 import { RecentProjects } from "@/Components/RecentProjects";
-import { RandomQuotes } from "@/Components/RandomQuotes";
 import { AestheticDivider } from "@/Components/AestheticDivider";
 import { Contact } from "@/Components/Contact";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col min-h-screen bg-black-100 text-white overflow-x-hidden">
+    <main className="relative flex flex-col bg-black-100 text-white overflow-x-hidden">
       {/* Floating nav */}
       <FloatingNav />
 
@@ -19,7 +18,6 @@ export default function Home() {
       <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col justify-center items-center px-5 sm:px-10">
         <Grid />
         <RecentProjects />
-        <RandomQuotes />
         <AestheticDivider />
         <Contact />
       </div>

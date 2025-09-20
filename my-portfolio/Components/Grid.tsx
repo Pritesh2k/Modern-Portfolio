@@ -9,10 +9,10 @@ const Grid = () => {
       className="relative w-screen overflow-hidden min-h-screen 
         bg-gradient-to-br from-white/10 via-white/5 to-transparent
         backdrop-blur-xl 
-        border border-white/20 
         shadow-lg 
         rounded-tl-[50px] rounded-tr-[50px] 
         flex flex-col items-center"
+
       style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
     >
       {/* Title Section */}

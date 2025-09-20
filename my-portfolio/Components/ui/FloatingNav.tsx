@@ -13,7 +13,6 @@ export const FloatingNav = ({ className }: { className?: string }) => {
     { name: "Home", link: "#", icon: <FaHome /> },
     { name: "About", link: "#about", icon: <FaUser /> },
     { name: "Projects", link: "#projects", icon: <FaProjectDiagram /> },
-    { name: "Quotes", link: "#quotes", icon: <FaQuoteLeft /> },
     { name: "Contact", link: "#contact", icon: <FaEnvelope /> },
   ];
 
