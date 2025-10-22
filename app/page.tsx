@@ -1,52 +1,58 @@
 "use client";
+
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Hero } from './Pages/Hero';
 import { Navbar } from "./Components/NavBar";
+import { Projects } from "./Pages/Projects";
+import { Traits } from "./Pages/Traits";
+import { Solitude } from "./Pages/Solitude";
 
 export default function Home() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  // Attach scrollYProgress to the scroll container
   const { scrollYProgress } = useScroll({ container: scrollRef });
 
-  // Optional: smooth transition for scroll effects
-  const yTransform = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+  // Map scroll to text opacity (fade out when scrolling down)
+  const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
     <div className="w-full h-screen overflow-x-hidden">
       <Navbar />
+
       {/* Hero Section */}
-      <div className="w-full h-screen relative z-0">
-        <Hero />
-      </div>
+      <section id="home">
+        <Hero opacity={textOpacity} />
+      </section>
 
       {/* Scrollable Content */}
       <motion.div
         ref={scrollRef}
-        className="absolute top-0 left-0 w-full h-screen overflow-y-scroll scroll-smooth z-10"
+        className="scroll-container absolute top-0 left-0 w-full h-screen overflow-y-scroll scroll-smooth z-10"
       >
         {/* Spacer for Hero */}
         <section className="h-screen w-full bg-transparent" />
 
-        {/* Traits Section */}
-        <motion.section
-          className="h-screen w-full bg-white flex items-center justify-center px-4 box-border"
-        >
-          <h2 className="text-4xl md:text-5xl font-semibold text-center">Traits Section</h2>
-        </motion.section>
-
         {/* Projects Section */}
-        <motion.section
-          className="h-screen w-full bg-gray-100 flex items-center justify-center px-4 box-border"
-        >
-          <h2 className="text-4xl md:text-5xl font-semibold text-center">Projects Section</h2>
-        </motion.section>
+        <section id="project" className="h-screen w-full flex items-center justify-center px-4">
+          <Projects />
+        </section>
+
+        {/* Traits Section */}
+        <section id="traits" className="h-screen w-full flex items-center justify-center px-4">
+          <Traits />
+        </section>
+
+        {/* Solitude Section */}
+        <section id="solitude" className="h-screen w-full flex items-center justify-center px-4">
+          <Solitude />
+        </section>
 
         {/* Contact Section */}
-        <motion.section
-          className="h-screen w-full bg-gray-200 flex items-center justify-center px-4 box-border"
-        >
+        <section id="contact" className="h-100 w-full flex items-center justify-center px-4">
           <h2 className="text-4xl md:text-5xl font-semibold text-center">Contact Section</h2>
-        </motion.section>
+        </section>
       </motion.div>
     </div>
   );
