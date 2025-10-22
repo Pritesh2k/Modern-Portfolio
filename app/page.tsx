@@ -7,6 +7,7 @@ import { Navbar } from "./Components/NavBar";
 import { Projects } from "./Pages/Projects";
 import { Traits } from "./Pages/Traits";
 import { Solitude } from "./Pages/Solitude";
+import { Contact } from "./Pages/Contact";
 
 export default function Home() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +52,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="h-100 w-full flex items-center justify-center px-4">
-          <h2 className="text-4xl md:text-5xl font-semibold text-center">Contact Section</h2>
+          <Contact />
         </section>
       </motion.div>
     </div>
