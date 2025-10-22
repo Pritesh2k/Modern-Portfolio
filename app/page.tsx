@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Hero } from './Pages/Hero';
+import { Navbar } from "./Components/NavBar";
 
 export default function Home() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -12,6 +13,7 @@ export default function Home() {
 
   return (
     <div className="w-full h-screen overflow-x-hidden">
+      <Navbar />
       {/* Hero Section */}
       <div className="w-full h-screen relative z-0">
         <Hero />
