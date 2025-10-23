@@ -36,22 +36,22 @@ export default function Home() {
         <section className="h-screen w-full bg-transparent" />
 
         {/* Projects Section */}
-        <section id="project" className="h-screen w-full flex items-center justify-center px-4">
+        <section id="project" className="h-screen w-full flex items-center justify-center px-2">
           <Projects />
         </section>
 
         {/* Traits Section */}
-        <section id="traits" className="h-screen w-full flex items-center justify-center px-4">
+        <section id="traits" className="h-screen w-full flex items-center justify-center px-2">
           <Traits />
         </section>
 
         {/* Solitude Section */}
-        <section id="solitude" className="h-screen w-full flex items-center justify-center px-4">
+        <section id="solitude" className="h-screen w-full flex items-center justify-center px-2">
           <Solitude />
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="h-100 w-full flex items-center justify-center px-4">
+        <section id="contact" className="h-[60vh] w-full flex items-center justify-center px-2">
           <Contact />
         </section>
       </motion.div>

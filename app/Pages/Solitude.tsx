@@ -27,12 +27,12 @@ export const Solitude = () => {
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center 
-                    bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+                    bg-white/5 backdrop-blur-xl border border-white/10 rounded-b-2xl overflow-hidden">
 
       {/* Responsive Breathing Solitude Title */}
       <div className='flex justify-center items-center w-full h-[15vh] px-3'>
         <motion.div
-          className='text-4xl sm:text-5xl md:text-6xl font-semibold uppercase text-white tracking-widest'
+          className='text-5xl sm:text-5xl md:text-5xl font-semibold uppercase text-white tracking-widest'
           animate={{
             scale: scaleValues,            // responsive expansion
             letterSpacing: spacingValues, // responsive spacing

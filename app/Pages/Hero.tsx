@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
           >
             <RotatingText
               texts={['Expressing', 'Visualising', 'Illustrating', 'Showcasing', 'Articulating']}
-              mainClassName="text-red-600 text-[clamp(2rem,5vw,5rem)] md:text-[clamp(3rem,6vw,7rem)] font-bold text-center uppercase"
+              mainClassName="text-[clamp(2rem,5vw,5rem)] md:text-[clamp(3rem,6vw,7rem)] font-bold text-center uppercase text-red-500/30 [-webkit-text-stroke:1px_theme(colors.red.500)] drop-shadow-[0_0_3px_theme(colors.yellow.400)]"
               staggerFrom="last"
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
