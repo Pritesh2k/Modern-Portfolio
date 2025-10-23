@@ -1,8 +1,7 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
+import ScrollVelocity from '../Components/ScrollVelocity';
 
 export const Solitude = () => {
     // Responsive breakpoints
@@ -30,30 +29,14 @@ export const Solitude = () => {
     bg-black/5 backdrop-blur-xl border border-white/10 overflow-hidden">
             <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
 
-            {/* Responsive Breathing Solitude Title */}
-            <div className='flex justify-center items-center w-full h-[15vh] px-3'>
-                <motion.div
-                    className='text-5xl sm:text-5xl md:text-5xl font-semibold uppercase text-white tracking-widest font-[Roboto_Flex]'
-                    animate={{
-                        scale: scaleValues,            // responsive expansion
-                        letterSpacing: spacingValues, // responsive spacing
-                        y: floatValues,              // responsive floating
-                        textShadow: [
-                            "0 0 10px rgba(255,255,255,0.2)",
-                            "0 0 25px rgba(255,255,255,0.4)",
-                            "0 0 10px rgba(255,255,255,0.2)",
-                            "0 0 10px rgba(255,255,255,0.2)"
-                        ]
-                    }}
-                    transition={{
-                        times: [0, 0.5, 0.75, 1], // expand 50%, retract 25%, pause 25%
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                >
-                    Solitude
-                </motion.div>
+            <div className='flex w-full h-[15vh] 
+                            items-center justify-center'>
+                <div className='text-5xl font-semibold uppercase text-white text-center md:text-left font-[Roboto_Flex]'>
+                    <ScrollVelocity
+                        texts={['Solitude / Solitude / Solitude / Solitude / Solitude / ']}
+                        velocity={150}
+                        className="custom-scroll-text" />
+                </div>
             </div>
 
             {/* Display Section */}
