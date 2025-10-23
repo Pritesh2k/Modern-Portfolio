@@ -47,7 +47,8 @@ export const Navbar: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
             {/* Collapsed Circle / Close Button */}
             <AnimatePresence>
                 <motion.button
@@ -101,7 +102,7 @@ export const Navbar: React.FC = () => {
                                 return (
                                     <motion.li
                                         key={idx}
-                                        className="relative flex-shrink-0"
+                                        className="relative shrink-0"
                                         variants={itemVariants}
                                         onMouseEnter={() => setHoveredIdx(idx)}
                                         onMouseLeave={() => setHoveredIdx(null)}
@@ -116,7 +117,7 @@ export const Navbar: React.FC = () => {
                                             whileTap={{ scale: 0.9 }}
                                             transition={{ type: "spring", stiffness: 300, damping: 25 }}
                                         >
-                                            <Icon size={20} color={isHovered ? "#fff" : "currentColor"} />
+                                            <Icon size={20} color={isHovered ? "#fb2c36" : "currentColor"}/>
                                         </motion.button>
 
                                     </motion.li>
@@ -136,7 +137,7 @@ export const Navbar: React.FC = () => {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="fixed bottom-25 left-1/2 transform -translate-x-1/2 font-semibold text-red-600 text-lg pointer-events-none"
+                        className="fixed bottom-25 left-1/2 transform -translate-x-1/2 font-light flex items-center justify-center bg-white/10 backdrop-blur-xl border rounded-2xl p-4 border-white/20 shadow-lg shadow-black/20 rounded-3xlr text-white text-lg pointer-events-none font-[Roboto_Flex] tracking-widest drop-shadow-[0_0_10px_var(--color-white)]"
                     >
                         {navItems[hoveredIdx].label}
                     </motion.h2>
