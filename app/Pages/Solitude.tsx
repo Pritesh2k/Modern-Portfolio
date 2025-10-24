@@ -42,7 +42,7 @@ export const Solitude = () => {
             {/* Display Section */}
             <div className='flex items-center justify-center w-full h-[85vh] px-3'>
                 <div className='text-4xl font-semibold uppercase text-white font-[Roboto_Flex]'>
-                    Display
+                    Games, Nature, Psycology, Art, Technology, Music
                 </div>
             </div>
         </div>

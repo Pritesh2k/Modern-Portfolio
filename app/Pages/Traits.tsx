@@ -1,5 +1,4 @@
 "use client";
-
 import ScrollVelocity from "../Components/ScrollVelocity";
 
 export const Traits = () => {
