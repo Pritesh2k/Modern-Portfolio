@@ -46,9 +46,9 @@ export default function Home() {
         </section>
 
         {/* Solitude Section */}
-        <section id="solitude" className="h-screen w-full flex items-center justify-center">
+        {/* <section id="solitude" className="h-screen w-full flex items-center justify-center">
           <Solitude />
-        </section>
+        </section> */}
 
         {/* Contact Section */}
         <section id="contact" className="h-[40vh] w-full flex items-center justify-center">

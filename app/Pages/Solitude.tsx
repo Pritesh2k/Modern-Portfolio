@@ -1,13 +1,13 @@
 "use client";
 
 import { useMediaQuery } from 'react-responsive';
-import ScrollVelocity from '../Components/ScrollVelocity';
+import Image from 'next/image';
+import Mountain from '../../public/Mountain.png'
 
 export const Solitude = () => {
     // Responsive breakpoints
     const isSmall = useMediaQuery({ maxWidth: 640 }); // mobile
     const isMedium = useMediaQuery({ minWidth: 641, maxWidth: 1024 }); // tablet
-    const isLarge = useMediaQuery({ minWidth: 1025 }); // desktop
 
     // Dynamic animation values based on screen size
     const scaleValues = isSmall
@@ -30,10 +30,26 @@ export const Solitude = () => {
             <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
 
             {/* Display Section */}
-            <div className='flex items-center justify-center w-full h-screen px-3'>
-                <div className='text-4xl font-semibold uppercase text-white font-[Roboto_Flex]'>
-                    Games, Nature, Psycology, Art, Technology, Music
+            <div className="relative w-full h-screen">
+                <Image
+                    src={Mountain}
+                    alt="Cherry Blossom"
+                    fill
+                    style={{ objectFit: "contain", objectPosition: "bottom", scale: 1.2 }} // full width, top aligned
+                    className="w-full h-full translate-y-50"
+                />
+
+                <div className="absolute flex justify-center items-center top-15 left-0 w-full h-80 text-center">
+                    <span className='text-[15vw] text-white uppercase tracking-widest'>Solitude</span>
                 </div>
+
+                <Image
+                    src={Mountain}
+                    alt="Cherry Blossom"
+                    fill
+                    style={{ objectFit: "contain", objectPosition: "bottom", scale: 1.2 }} // full width, top aligned
+                    className="w-full h-full translate-y-50"
+                />
             </div>
         </div>
     );
