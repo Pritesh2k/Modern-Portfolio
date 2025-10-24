@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import Iridescence from "../Components/Iridescence";
 import { gsap } from "gsap";
@@ -43,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
       (entries) => {
         entries.forEach((entry) => setShowSideText(entry.isIntersecting));
       },
-      { threshold: 0.3 } // trigger when 30% of hero is visible
+      { threshold: 0.3 }
     );
 
     if (heroRef.current) observer.observe(heroRef.current);
@@ -53,24 +54,15 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
     };
   }, []);
 
-  // Variants
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.3, delayChildren: 4 } },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { x: 0, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 120, damping: 20 } },
-    exit: { opacity: 0, transition: { duration: 0.5, ease: "easeInOut" } },
-  };
-
   const longestText = "React Bits Is Cool!";
   const fixedWidth = `${longestText.length}ch`;
 
   return (
     <div ref={heroRef} className="w-full h-screen relative">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+        rel="stylesheet"
+      />
       <Iridescence />
 
       {/* Center Hero Text */}
@@ -81,6 +73,7 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
             style={{ width: fixedWidth, opacity }}
             layout
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
+
           >
             <RotatingText
               texts={["Expressing", "Visualising", "Illustrating", "Showcasing", "Articulating"]}
@@ -101,7 +94,6 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
         )}
 
         {showSecondText && (
-
           <motion.div
             className="flex justify-center"
             style={{ width: fixedWidth, opacity }}

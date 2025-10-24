@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.2",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
+    "@splinetool/react-spline": "^4.1.0",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "maath": "^0.10.8",
@@ -22,6 +23,7 @@
     "react-dom": "19.2.0",
     "react-feather": "^2.0.10",
     "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0",
     "react-responsive": "^10.0.1"
   },
   "devDependencies": {

@@ -29,18 +29,8 @@ export const Solitude = () => {
     bg-black/5 backdrop-blur-xl border border-white/10 overflow-hidden">
             <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
 
-            <div className='flex w-full h-[15vh] 
-                            items-center justify-center'>
-                <div className='text-5xl font-semibold uppercase text-white text-center md:text-left font-[Roboto_Flex]'>
-                    <ScrollVelocity
-                        texts={['Solitude / Solitude / Solitude / Solitude / Solitude / ']}
-                        velocity={150}
-                        className="custom-scroll-text" />
-                </div>
-            </div>
-
             {/* Display Section */}
-            <div className='flex items-center justify-center w-full h-[85vh] px-3'>
+            <div className='flex items-center justify-center w-full h-screen px-3'>
                 <div className='text-4xl font-semibold uppercase text-white font-[Roboto_Flex]'>
                     Games, Nature, Psycology, Art, Technology, Music
                 </div>
