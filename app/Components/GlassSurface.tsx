@@ -21,24 +21,24 @@ export interface GlassSurfaceProps {
   xChannel?: 'R' | 'G' | 'B';
   yChannel?: 'R' | 'G' | 'B';
   mixBlendMode?:
-    | 'normal'
-    | 'multiply'
-    | 'screen'
-    | 'overlay'
-    | 'darken'
-    | 'lighten'
-    | 'color-dodge'
-    | 'color-burn'
-    | 'hard-light'
-    | 'soft-light'
-    | 'difference'
-    | 'exclusion'
-    | 'hue'
-    | 'saturation'
-    | 'color'
-    | 'luminosity'
-    | 'plus-darker'
-    | 'plus-lighter';
+  | 'normal'
+  | 'multiply'
+  | 'screen'
+  | 'overlay'
+  | 'darken'
+  | 'lighten'
+  | 'color-dodge'
+  | 'color-burn'
+  | 'hard-light'
+  | 'soft-light'
+  | 'difference'
+  | 'exclusion'
+  | 'hue'
+  | 'saturation'
+  | 'color'
+  | 'luminosity'
+  | 'plus-darker'
+  | 'plus-lighter';
   className?: string;
   style?: React.CSSProperties;
 }
@@ -194,6 +194,9 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   }, [width, height]);
 
   const supportsSVGFilters = () => {
+    if (typeof window === 'undefined') return false; // Guard for SSR
+    if (typeof document === 'undefined') return false;
+
     const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
     const isFirefox = /Firefox/.test(navigator.userAgent);
 
@@ -205,6 +208,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     div.style.backdropFilter = `url(#${filterId})`;
     return div.style.backdropFilter !== '';
   };
+
 
   const supportsBackdropFilter = () => {
     if (typeof window === 'undefined') return false;
