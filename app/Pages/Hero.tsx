@@ -3,8 +3,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Iridescence from "../Components/Iridescence";
 import { gsap } from "gsap";
-import { MotionValue, motion, Variants } from "framer-motion";
+import { MotionValue, motion } from "framer-motion";
 import RotatingText from "../Components/RotatingText";
+import BrushStroke from "../Components/BrushStroke";
 
 interface HeroProps {
   opacity: MotionValue<number>;
@@ -13,18 +14,16 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ opacity }) => {
   const [showFirstText, setShowFirstText] = useState(false);
   const [showSecondText, setShowSecondText] = useState(false);
-  const [showSideText, setShowSideText] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
   const secondTextRef = useRef<HTMLDivElement>(null);
 
-  // Fade-in first and second text
   useEffect(() => {
     const timer = setTimeout(() => setShowFirstText(true), 1000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowSecondText(true), 1000);
+    const timer = setTimeout(() => setShowSecondText(true), 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -38,34 +37,21 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
     }
   }, [showSecondText]);
 
-  // IntersectionObserver to toggle side text visibility
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => setShowSideText(entry.isIntersecting));
-      },
-      { threshold: 0.3 }
-    );
-
-    if (heroRef.current) observer.observe(heroRef.current);
-
-    return () => {
-      if (heroRef.current) observer.unobserve(heroRef.current);
-    };
-  }, []);
-
   const longestText = "React Bits Is Cool!";
   const fixedWidth = `${longestText.length}ch`;
 
   return (
-    <div ref={heroRef} className="w-full h-screen relative">
+    <div ref={heroRef} className="w-full h-screen relative overflow-hidden">
       <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
         rel="stylesheet"
       />
+
       <Iridescence />
 
-      {/* Center Hero Text */}
+      <BrushStroke />
+
+      {/* Hero Text Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         {showFirstText && (
           <motion.div
@@ -73,7 +59,6 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
             style={{ width: fixedWidth, opacity }}
             layout
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-
           >
             <RotatingText
               texts={["Expressing", "Visualising", "Illustrating", "Showcasing", "Articulating"]}
@@ -95,6 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ opacity }) => {
 
         {showSecondText && (
           <motion.div
+            ref={secondTextRef}
             className="flex justify-center"
             style={{ width: fixedWidth, opacity }}
             layout

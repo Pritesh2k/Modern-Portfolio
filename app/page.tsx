@@ -8,6 +8,7 @@ import { Projects } from "./Pages/Projects";
 import { Traits } from "./Pages/Traits";
 import { Solitude } from "./Pages/Solitude";
 import { Contact } from "./Pages/Contact";
+import GradualBlurMemo from "./Components/GradualBlur";
 
 export default function Home() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -26,6 +27,8 @@ export default function Home() {
       <section id="home">
         <Hero opacity={textOpacity} />
       </section>
+
+      <GradualBlurMemo />
 
       {/* Scrollable Content */}
       <motion.div
@@ -46,9 +49,9 @@ export default function Home() {
         </section>
 
         {/* Solitude Section */}
-        {/* <section id="solitude" className="h-screen w-full flex items-center justify-center">
+        <section id="solitude" className="h-screen w-full flex items-center justify-center">
           <Solitude />
-        </section> */}
+        </section>
 
         {/* Contact Section */}
         <section id="contact" className="h-[40vh] w-full flex items-center justify-center">
